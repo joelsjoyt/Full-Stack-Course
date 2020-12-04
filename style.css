@@ -1,0 +1,21 @@
+.cntr{
+    background-image: linear-gradient(to left,#66ccff, #0066ff) ;
+}
+
+body.login-body{
+    background-color: #e6ffff;
+}
+
+.container.login-container{
+    margin-top: 10%;
+}
+
+.card.login-card{
+    padding: 20px 40px 20px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
+}
+
+.img-fluid.login-image{
+    margin: 0px 40px 60px 220px;   
+    display: block; 
+}
