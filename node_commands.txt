@@ -1,0 +1,12 @@
+npm install -g nodemon
+
+npm init
+    Initialize your node project
+
+npm install --save
+    add to package.json so anyone making it can 
+    forget the hazzle of getting things
+
+npm install 
+    Installs all dependencies required for the project
+ 
