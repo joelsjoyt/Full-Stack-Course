@@ -176,7 +176,7 @@ for (var i=0; i< Persons.length; i++){
 
 // iterate through keys in object
 // for in loop to iterate through something
-persn = Persons[0];
+var persn = Persons[0];
 for (var key in persn){
     console.log(persn[key]);
 }
