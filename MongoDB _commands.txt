@@ -1,0 +1,8 @@
+show dbs
+    To show all dbs
+use databasename
+    to use a particular database
+show collections 
+    to show models in the active database
+db.modelname.opertaion
+    used to perform various opertaions
