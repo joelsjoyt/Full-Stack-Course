@@ -12,6 +12,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 //Food List
+app.get('/food', function(req, res){
+    Food.find({}, function(err, foods){
+        if(err){
+            res.status(500).send({error: "Cannot find the foods"})
+        }else{
+            res.send(foods);
+        }
+    })
+})
+
 app.post('/food', function(req, res ){
     var food = new Food();
     food.name = req.body.name;
@@ -25,16 +35,29 @@ app.post('/food', function(req, res ){
     });
 });
 
-app.get('/food', function(req, res){
-    Food.find({}, function(err, foods){
+app.put('/food/:foodID', function(req, res){
+    console.log(req.params.foodID)
+    Food.findByIdAndUpdate(req.params.foodID, req.body, function(err, food ){
         if(err){
-            res.status(500).send({error: "Cannot find the foods"})
+            res.status(500).send({err:"Cannot find the food"});
         }else{
-            res.send(foods);
+            res.send("Update success");
         }
     })
 })
 
+app.delete('/food/:foodID', function(req,res){
+    Food.remove({_id:req.params.foodID}, function(err, food){
+        if(err){
+            res.status(500).send({error:"Cannot delete item"});
+        }else{
+            res.send("Item deleted");
+        }
+    })
+})
+
+
+//My Foodlist
 //See my foodlist
 app.get('/myfood', function(req, res){
     myFood.find({}).populate({path:"foods", model:"Food"}).exec(function(err, foodlist){
@@ -73,6 +96,16 @@ app.put('/myfood/add', function(req, res){
                         res.send(foodlist);
                     }
                 })
+        }
+    })
+})
+
+app.delete('/myfood/:foodlistID', function(req,res){
+    myFood.deleteOne(req.params.foodID, function(err, food){
+        if(err){
+            res.status(500).send({error:"Cannot delete food list"});
+        }else{
+            res.send("Food List deleted");
         }
     })
 })
