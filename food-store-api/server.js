@@ -69,7 +69,6 @@ app.get('/myfood', function(req, res){
     })
 })
 
-//My food List
 app.post('/myfood', function(req, res){
     var myfood = myFood();
     myfood.title = req.body.title;
