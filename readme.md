@@ -1,5 +1,5 @@
 # FULL STACK DEVELOPEMENT COURSE
-
+A beginner level Full Stack course created by Joel S Joy
 ## Things you learn
     * Working and usage of HTML
     * Working and usageof CSS
